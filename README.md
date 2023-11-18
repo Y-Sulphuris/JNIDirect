@@ -1,7 +1,8 @@
 # JNIDirect
 Direct native methods calls without JNI overhead (HotSpot only)
 
-**Project currently in early development stage (tested only on GCC win64, java 8, not stable)**<br>
+**Project currently in early development stage (tested only on GCC win64, not stable)**<br>
+Required: `java 8+`<br>
 ARM support will be added a bit later<br>
 _Any contribution is welcome_.
 
