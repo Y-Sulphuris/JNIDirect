@@ -1,0 +1,3 @@
+G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/CMakeFiles/JNIDirect.dir
+G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/CMakeFiles/edit_cache.dir
+G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/CMakeFiles/rebuild_cache.dir

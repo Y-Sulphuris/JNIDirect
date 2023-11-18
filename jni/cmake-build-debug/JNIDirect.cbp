@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="JNIDirect"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="JNIDirect">
+				<Option output="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/libJNIDirect.dll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/lidia/.jdks/corretto-1.8.0_372/include"/>
+					<Add directory="C:/Users/lidia/.jdks/corretto-1.8.0_372/include/win32"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 JNIDirect"/>
+					<CompileFile command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="JNIDirect/fast">
+				<Option output="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/libJNIDirect.dll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/lidia/.jdks/corretto-1.8.0_372/include"/>
+					<Add directory="C:/Users/lidia/.jdks/corretto-1.8.0_372/include/win32"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 JNIDirect/fast"/>
+					<CompileFile command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="G:/Project/CLionProjects/JNIDirect/jni/JNIDirect.c">
+			<Option target="JNIDirect"/>
+		</Unit>
+		<Unit filename="G:/Project/CLionProjects/JNIDirect/jni/JNIDirect.h">
+			<Option target="JNIDirect"/>
+		</Unit>
+		<Unit filename="G:/Project/CLionProjects/JNIDirect/jni/test.c">
+			<Option target="JNIDirect"/>
+		</Unit>
+		<Unit filename="G:/Project/CLionProjects/JNIDirect/jni/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

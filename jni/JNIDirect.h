@@ -15,17 +15,20 @@
 #error Unknown OS
 #endif
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+#define JNIDirectArgs jint JNIDirectArgs,
+#define JNIDirectAInvoke 0,
 
 int JNIDirectPerform(void* generated, void* a1);
 
-void* JNIDirectGenerateFuncWin64(void* a1, const void* targetF, int genSize);
+void* JNIDirectGenerateFuncWin64(void* a1, const void* targetF, int genSize, int argc);
 
 __declspec(noinline)
-void JNIDirectInit(void* targetF, void** generated_ptr);
+void JNIDirectInit(void* targetF, void** generated_ptr, int argc);
 
 
 #ifdef __cplusplus

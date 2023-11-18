@@ -1,0 +1,3 @@
+D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\JNIDirect.dir/objects.a
+D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\ar.exe qc CMakeFiles\JNIDirect.dir/objects.a @CMakeFiles\JNIDirect.dir\objects1.rsp
+D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw\bin\gcc.exe -g -shared -o libJNIDirect.dll -Wl,--out-implib,libJNIDirect.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\JNIDirect.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\JNIDirect.dir\linkLibs.rsp
