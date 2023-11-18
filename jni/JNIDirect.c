@@ -5,11 +5,9 @@
 
 
 int JNIDirectPerform(void* generated, void* a1) {
-	uint64_t callOperand = ((byte*)generated - (byte*)a1);
+	uint32_t callOperand = ((byte*)generated - (byte*)a1);
 	uint32_t* callOperandAddr = (uint32_t*)(((byte*)a1) - 5 + 1);
-	if(callOperand != (uint32_t)callOperand) {
-		return 1;
-	}
+	
 	
 	*callOperandAddr = callOperand;
 	
@@ -25,16 +23,6 @@ void* JNIDirectGenerateFuncWin64(void* a1, const void* const targetF, int genSiz
 		genSize,
 		MEM_COMMIT,
 		PAGE_EXECUTE_READWRITE);
-	while ((byte*)generated < (byte*)a1) {
-		printf("err: generated < a1. Trying to realloc...");
-		VirtualFreeEx(GetCurrentProcess(),generated,genSize,MEM_RELEASE);
-		generated = (char*)VirtualAllocEx(
-			GetCurrentProcess(),
-			NULL,
-			genSize,
-			MEM_COMMIT,
-			PAGE_EXECUTE_READWRITE);
-	}
 	
 	//insert function that call target function:
 	byte* p = (byte*)generated;
@@ -67,7 +55,7 @@ void* JNIDirectGenerateFuncWin64(void* a1, const void* const targetF, int genSiz
 	}
 	
 	//
-	*p++ = 0x8b; *p++ = 0x45; *p++ = 0x10; //mov    0x10(%rbp),%eax
+	//*p++ = 0x8b; *p++ = 0x45; *p++ = 0x10; //mov    0x10(%rbp),%eax
 	*p++ = 0x5d; //pop    %rbp
 	//
 	*p++ = 0xc3; //ret

@@ -24,42 +24,26 @@ Usage:
 //JNIDirectTest.java
 package test;
 public class JNIDirectTest {
-    public static native void myfunc(int arg);
+    public static native long myfunc(int arg);
 }
 ```
 
 ```c
 /* library.c */
 
-void myDirectFunc(jint arg) {
-	//func implementation
-}
-
-//it will be points to runtime-generated function that calls myDirectFunc (only on 64 bit architecture, 32 bit doesn't need this)
-void* myDirectFunc_generated = nullptr;
-
-JNIEXPORT void JNICALL Java_test_JNIDirectTest_myfunc(JNIEnv*, jclass, jint arg) {
-	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_generated);
-	myDirectFunc(arg);
-}
-```
-or:
-```c
-/* library.c */
-
-void myDirectFunc(JNIDirectArgs jint arg) {
+jlong myDirectFunc(JNIDirectArgs jint arg) {
 	//func implementation
 }
 
 //it will be points to runtime-generated function that calls myDirectFunc (only on 64 bit architecture, 32 bit doesn't need this)
 void* myDirectFunc_generated = NULL;
 
-JNIEXPORT void JNICALL JavaCritical_test_JNIDirectTest_myfunc(jint arg) {
-	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_generated);
-	myDirectFunc(JNIDirectAInvoke arg);
+JNIEXPORT jlong JNICALL JavaCritical_test_JNIDirectTest_myfunc(jint arg) {
+	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_generated,1);
+	return myDirectFunc(JNIDirectAInvoke arg);
 }
 //fallback for other JVMs and non-jit compiled methods
-JNIEXPORT void JNICALL Java_test_JNIDirectTest_myfunc(JNIEnv*, jclass, jint arg) {
-	myDirectFunc(JNIDirectAInvoke arg);
+JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_myfunc(JNIEnv* env, jclass caller, jint arg) {
+	return myDirectFunc(JNIDirectAInvoke arg,1);
 }
 ```
