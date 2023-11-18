@@ -28,8 +28,6 @@ __declspec(noinline)
 void JNIDirectInit(void* targetF, void** generated_ptr);
 
 
-
-
 #ifdef __cplusplus
 }
 #endif

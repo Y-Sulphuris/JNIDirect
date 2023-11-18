@@ -5,8 +5,8 @@
 
 
 int JNIDirectPerform(void* generated, void* a1) {
-	uint64_t callOperand = ((char*)generated - (char*)a1);
-	uint32_t* callOperandAddr = (uint32_t*)(((char*)a1) - 5 + 1);
+	uint64_t callOperand = ((byte*)generated - (byte*)a1);
+	uint32_t* callOperandAddr = (uint32_t*)(((byte*)a1) - 5 + 1);
 	if(callOperand != (uint32_t)callOperand) {
 		return 1;
 	}
@@ -45,7 +45,7 @@ void* JNIDirectGenerateFuncWin64(void* a1, const void* const targetF, const int 
 		const void** pb = (const void**)p;
 		pb[0] = targetF;
 	}
-	p += sizeof(uint64_t);
+	p += sizeof(void*);
 	
 	*p++ = 0x41; *p++ = 0xff; *p++ = 0xd2; // call *%r10
 	
