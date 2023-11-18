@@ -10,7 +10,7 @@ public class JNIDirectTest {
 		}
 	}
 	private static void methodToBeJitCompiled() {
-		System.out.println(testI1L1ReturnArg(5,50L));
+		test();
 	}
 	private static native void test();
 	private static native void testI2(int i1, int i2);

@@ -1,5 +1,5 @@
 # JNIDirect
-Direct JNI calls without overhead (HotSpot only)
+Direct native methods calls without JNI overhead (HotSpot only)
 
 **Project currently in early development stage (tested only on GCC win64, java 8, not stable)**<br>
 ARM support will be added a bit later<br>
@@ -13,9 +13,12 @@ Only primitives are allowed as function arguments and return types.
 Unlike JNICritical, these methods do not stop the garbage collector, but they do not allow arrays to be passed as arguments and works faster than JNICritical.<br>
 This is still intended for short methods calls.
 
+```
 Invocation native method with one dereference operation:
+(Windows 10 x64, Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz   2.40 GHz)
 JNI:                8,773	ns/op
 JNIDirect:          3,262	ns/op
+```
 
 
 Usage:
@@ -38,6 +41,7 @@ jlong myDirectFunc(JNIDirectArgs jint arg) {
 //it will be points to runtime-generated function that calls myDirectFunc (only on 64 bit architecture, 32 bit doesn't need this)
 void* myDirectFunc_generated = NULL;
 
+//called once when the method has just been recompiled by JIT
 JNIEXPORT jlong JNICALL JavaCritical_test_JNIDirectTest_myfunc(jint arg) {
 	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_generated,1);
 	return myDirectFunc(JNIDirectAInvoke arg);
