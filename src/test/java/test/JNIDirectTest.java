@@ -2,7 +2,9 @@ package test;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
+import sun.misc.Unsafe;
 
+import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
@@ -24,9 +26,7 @@ public class JNIDirectTest {
 		}
 	}
 	private static void methodToBeJitCompiled() {
-		//test();
-		//testI2(5,7);
-		System.out.println(testI1L1ReturnArg(5,8));
+		getLong(memory);
 	}
 	private static native void test();
 	private static native void testI2(int i1, int i2);
@@ -38,5 +38,42 @@ public class JNIDirectTest {
 	@Benchmark
 	public void measureIWANTBENCHMARKSINTHISPROJECT(Blackhole bh) {
 		testI1ReturnArg(5);
+	}
+
+	static final Unsafe unsafe;
+	static {
+		try {
+			Field f = Unsafe.class.getDeclaredField("theUnsafe");
+			f.setAccessible(true);
+			unsafe = (Unsafe)f.get(null);
+		} catch (Throwable e) {
+			throw new RuntimeException(e);
+		}
+	}
+	static long memory = unsafe.allocateMemory(32);
+
+	private static native long getLong(long ptr);
+
+	@Benchmark
+	public void measureGetLongDirect(Blackhole bh) {
+		getLong(memory);
+	}
+
+	private static native long getLongJNI(long ptr);
+
+	@Benchmark
+	public void measureGetLongJNI(Blackhole bh) {
+		getLongJNI(memory);
+	}
+
+	private static native long getLongCritical(long ptr);
+	@Benchmark
+	public void measureGetLongCritical(Blackhole bh) {
+		getLongCritical(memory);
+	}
+
+	@Benchmark
+	public long measureGetLongUnsafe(Blackhole bh) {
+		return unsafe.getLong(memory);
 	}
 }

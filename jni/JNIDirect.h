@@ -24,6 +24,7 @@ extern "C" {
 
 int JNIDirectPerform(void* generated, void* a1);
 
+void* __attribute__((noinline)) returnAddress();
 
 /**
  * @param targetF Pointer to implementation of 'native' method
@@ -36,6 +37,7 @@ int JNIDirectPerform(void* generated, void* a1);
  * 3 - out of memory (cannot allocate memory for native method caller)
  */
 int __attribute__((noinline)) JNIDirectInit(void* targetF, void** generated_ptr, int argc);
+
 #define EXIT_CODE_SUCCESS 0
 #define EXIT_CODE_ERROR_NOT_COMPILED 1
 #define EXIT_CODE_ERROR_UNSUPPORTED_CPU 2

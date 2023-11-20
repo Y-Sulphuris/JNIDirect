@@ -14,7 +14,7 @@
 typedef unsigned char byte;
 #endif
 
-#define DEBUG 1
+#define DEBUG 0
 #if DEBUG
 #define printf(T) printf(T)
 #else
@@ -96,64 +96,18 @@ void* allocRWX(void* a1, int size) {
 #define GEN_SIZE_X86_64 32
 
 
-void* JNIDirectGenerateFuncX86_64(void* a1, const void* const targetF, int argc) {
-    int genSize = GEN_SIZE_X86_64 + (argc << 1);
-    void* generated = allocRWX(a1,genSize);
+void* JNIDirectGenerateFuncX86_64(void* a1, const void* const targetF) {
+    void* generated = allocRWX(a1,GEN_SIZE_X86_64);
     if(generated == NULL) return NULL;
 
     //insert function that call target function:
     byte* p = (byte*)generated;
-    
-    if(1) {
-	    //*p++ = 0x41; *p++ = 0x52;// push r10
-	    *p++ = 0x49; *p++ = 0xba; {// movabs $[targetF],%r10
-		    const void** pb = (const void**)p;
-		    pb[0] = targetF;
-	    } p += sizeof(void*);
-	    *p++ = 0x41; *p++ = 0xff; *p++ = 0xe2; //jmp *%r10
-	    //*p++ = 0x41; *p++ = 0x5a;// pop r10
-	    
-	    /*p++ = 0x48; *p++ = 0xb8; { //movabs [ptr],%rax
-		    const void** pb = (const void**)p;
-		    pb[0] = targetF;
-	    } p += sizeof(void*);
-	    *p++ = 0xff; *p++ = 0xe0; //jmp *%rax*/
-    } else {
-	   
-    } /*else if(0) {
-	    //
-	    *p++ = 0x55; // push %rbp
-	    *p++ = 0x48; *p++ = 0x89; *p++ = 0xe5; // mov %rsp,%rbp
-	    *p++ = 0x89; *p++ = 0x4d; *p++ = 0x10; // mov %ecx,0x10(%rbp)
-	    //
-	    for (int i = 0; i < argc; ++i) {
-		    *p++ = 0x52; //push rdx
-	    }
-	    
-	    
-	    *p++ = 0x41; *p++ = 0x52;// push r10
-	    
-	    *p++ = 0x49; *p++ = 0xba; // movabs $[targetF],%r10
-	    {
-		    const void** pb = (const void**)p;
-		    pb[0] = targetF;
-	    }
-	    p += sizeof(void*);
-	    
-	    *p++ = 0x41; *p++ = 0xff; *p++ = 0xd2; // call *%r10
-	    
-	    *p++ = 0x41; *p++ = 0x5a;// pop r10
-	    
-	    for (int i = 0; i < argc; ++i) {
-		    *p++ = 0x5a; //pop rdx
-	    }
-	    
-	    //
-	    //*p++ = 0x8b; *p++ = 0x45; *p++ = 0x10; //mov    0x10(%rbp),%eax
-	    *p++ = 0x5d; //pop    %rbp
-	    //
-	    *p++ = 0xc3; //ret
-    }*/
+	
+    *p++ = 0x49; *p++ = 0xba; {
+	    const void** pb = (const void**)p;
+	    pb[0] = targetF;
+    } p += sizeof(void*); // movabs $[targetF],%r10
+    *p++ = 0x41; *p++ = 0xff; *p++ = 0xe2; //jmp *%r10
 
     return generated;
 }
@@ -171,7 +125,9 @@ void* JNIDirectGenerateFuncARM64(void* a1, const void* targetF, int argc) {
     return 0;
 }
 
-
+void* __attribute__((noinline)) returnAddress() {
+	return __builtin_return_address(2);
+}
 
 int __attribute__((noinline)) JNIDirectInit(void* const targetF, void** const generated_ptr, int argc) {
     if(getCurrentArch() == UnknownArch) return EXIT_CODE_ERROR_UNSUPPORTED_CPU;
@@ -179,7 +135,7 @@ int __attribute__((noinline)) JNIDirectInit(void* const targetF, void** const ge
 	byte* callAddr = (byte*)a1 - 5;
 	if(*callAddr == (byte)0xe8/*call instruction*/) {
 		if(*generated_ptr == NULL) {
-			*generated_ptr = JNIDirectGenerateFuncX86_64(a1, targetF, argc);
+			*generated_ptr = JNIDirectGenerateFuncX86_64(a1, targetF);
 			if(*generated_ptr == 0)
 				return EXIT_CODE_ERROR_OUT_OF_MEMORY;
 		}

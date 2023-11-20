@@ -47,10 +47,9 @@ jint testI1ReturnArg(JNIDirectArgs jint i1) {
 void* testI1ReturnArg_generated = NULL;
 
 JNIEXPORT jint JNICALL Java_test_JNIDirectTest_testI1ReturnArg(JNIEnv *env, jclass cls, jint i1) {
-	//JNIDirectInit(&testI1ReturnArg,&testI1ReturnArg_generated,1);
-	//return testI1ReturnArg(JNIDirectAInvoke i1);
+	JNIDirectInit(&testI1ReturnArg,&testI1ReturnArg_generated,1);
+	return testI1ReturnArg(JNIDirectAInvoke i1);
 	//printf("JNI args: %li, %i, %lli\n",i1, i2, i3);
-	return i1;
 }
 
 
@@ -83,3 +82,29 @@ JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_retNoArgs(JNIEnv *env, jclass cl
 	return retNoArgs();
 }
 
+jlong getLong(JNIDirectArgs jlong ptr) {
+	return *(jlong*)ptr;
+}
+
+void* getLong_generated = NULL;
+
+JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_getLong(JNIEnv *env, jclass cls, jlong ptr) {
+	return *(jlong*)ptr;
+}
+JNIEXPORT jlong JNICALL JavaCritical_test_JNIDirectTest_getLong(jlong ptr) {
+	JNIDirectInit(&getLong,&getLong_generated,1);
+	return *(jlong*)ptr;
+}
+
+
+JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_getLongJNI(JNIEnv *env, jclass cls, jlong ptr) {
+	return *(jlong*)ptr;
+}
+
+
+JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_getLongCritical(JNIEnv *env, jclass cls, jlong ptr) {
+	return *(jlong*)ptr;
+}
+JNIEXPORT jlong JNICALL JavaCritical_test_JNIDirectTest_getLongCritical(jlong ptr) {
+	return *(jlong*)ptr;
+}
