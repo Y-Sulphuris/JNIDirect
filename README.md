@@ -1,7 +1,7 @@
 # JNIDirect
 Direct native methods calls without JNI overhead (HotSpot only)
 
-**Project currently in early development stage (tested only on GCC win64, not stable)**<br>
+**Project currently in early development stage (tested only on x86_64, not stable)**<br>
 Required: `java 8+`<br>
 ARM support will be added a bit later<br>
 _Any contribution is welcome_.
@@ -11,14 +11,14 @@ the instruction to call an overhead from a JIT compiled java method directly to 
 You cannot use JNIEnv functions in these methods. 
 Only primitives are allowed as function arguments and return types.
 
-Unlike JNICritical, these methods do not stop the garbage collector, but they do not allow arrays to be passed as arguments and works faster than JNICritical.<br>
+Unlike JNICritical, these methods do not stop the garbage collector and works faster, but they do not allow arrays to be passed as arguments.<br>
 This is still intended for short methods calls.
 
 ```
-Invocation native method with one dereference operation:
+Invocation native method (takes 1 argument and returns it):
 (Windows 10 x64, Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz   2.40 GHz)
-JNI:                8,773	ns/op
-JNIDirect:          3,262	ns/op
+JNI:                    6,767 ± 0,267  ns/op
+JNIDirect:              2,522 ± 1,051  ns/op
 ```
 
 
