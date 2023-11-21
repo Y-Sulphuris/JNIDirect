@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL JavaCritical_test_JNIDirectTest_test() {
 }
 
 void testI2(JNIDirectArgs jint i1, jint i2) {
-	printf("JNIDirect args: %i\n",(i1+i2));
+	//printf("JNIDirect args: %li (%li + %li)\n",(i1+i2),i1,i2);
 }
 void* testI2_generated = NULL;
 

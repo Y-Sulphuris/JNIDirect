@@ -22,11 +22,12 @@ public class JNIDirectTest {
 	public static void main(String[] args) {
 		System.out.println("Hello world!");
 		while(true) {
-			methodToBeJitCompiled();
+			System.out.println(testI1ReturnArg(6));
 		}
 	}
 	private static void methodToBeJitCompiled() {
-		getLong(memory);
+		//System.out.println(testI1L1ReturnArg(5,7L));
+		testI3(5,(short)7,9L);
 	}
 	private static native void test();
 	private static native void testI2(int i1, int i2);
@@ -37,7 +38,9 @@ public class JNIDirectTest {
 
 	@Benchmark
 	public void measureIWANTBENCHMARKSINTHISPROJECT(Blackhole bh) {
-		testI1ReturnArg(5);
+		testI1L1ReturnArg(5,7L);
+		//testI3(5,(short)7,9L);
+		//testI2(6,8);
 	}
 
 	static final Unsafe unsafe;
