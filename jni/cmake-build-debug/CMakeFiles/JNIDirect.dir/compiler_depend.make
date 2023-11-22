@@ -279,16 +279,21 @@ CMakeFiles/JNIDirect.dir/JNIDirect.c.obj: G:/Project/CLionProjects/JNIDirect/jni
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/imm.h
 
 CMakeFiles/JNIDirect.dir/test.c.obj: G:/Project/CLionProjects/JNIDirect/jni/test.c \
-  G:/Project/CLionProjects/JNIDirect/jni/JNIDirect.h \
-  C:/Users/lidia/.jdks/corretto-1.8.0_372/include/jni.h \
-  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
-  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+  G:/Project/CLionProjects/JNIDirect/jni/JNIDirect.h \
+  C:/Users/lidia/.jdks/corretto-1.8.0_372/include/jni.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+  D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \

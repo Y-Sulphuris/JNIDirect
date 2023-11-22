@@ -22,7 +22,6 @@ extern "C" {
 #define JNIDirectArgs jint JNIDirectArgs,
 #define JNIDirectAInvoke 0,
 
-int JNIDirectPerform(void* generated, void* a1);
 
 void* __attribute__((noinline)) returnAddress();
 
@@ -36,7 +35,21 @@ void* __attribute__((noinline)) returnAddress();
  * 2 - unsupported CPU architecture<br>
  * 3 - out of memory (cannot allocate memory for native method caller)
  */
-int __attribute__((noinline)) JNIDirectInit(void* targetF, void** generated_ptr, int argc);
+int __attribute__((noinline)) JNIDirectInit(void* targetF, void** bridge_ptr, int argc);
+
+void* allocRWX(int size);
+
+
+enum arch {
+	x86,
+	x86_64,
+	ARM,
+	ARM64,
+	UnknownArch,
+	//
+};
+
+int JNIDirectInitIntrinsic(void*(*generate)(enum arch, void* args), void** generated_ptr, void* args, void* fallback, int fallback_argc);
 
 #define EXIT_CODE_SUCCESS 0
 #define EXIT_CODE_ERROR_NOT_COMPILED 1

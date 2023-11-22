@@ -19,15 +19,15 @@ public class JNIDirectTest {
 		//unix:
 		//System.load("/mnt/hgfs/JNIDirect/jni/cmake-build-debug/libJNIDirect.so");
 	}
-	public static void main(String[] args) {
-		System.out.println("Hello world!");
+	public static void main(String[] args) throws Exception{
+		System.out.println("Hello world!" + unsafe.getLong(memory));
+		Thread.sleep(1000);
 		while(true) {
-			System.out.println(testI1ReturnArg(6));
+			methodToBeJitCompiled();
 		}
 	}
 	private static void methodToBeJitCompiled() {
-		//System.out.println(testI1L1ReturnArg(5,7L));
-		testI3(5,(short)7,9L);
+		System.out.println(getLong(memory));
 	}
 	private static native void test();
 	private static native void testI2(int i1, int i2);
@@ -38,7 +38,8 @@ public class JNIDirectTest {
 
 	@Benchmark
 	public void measureIWANTBENCHMARKSINTHISPROJECT(Blackhole bh) {
-		testI1L1ReturnArg(5,7L);
+		getLong(memory);
+		//testI1L1ReturnArg(5,7L);
 		//testI3(5,(short)7,9L);
 		//testI2(6,8);
 	}
