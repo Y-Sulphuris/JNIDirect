@@ -23,7 +23,7 @@ extern "C" {
 #define JNIDirectAInvoke 0,
 
 
-void* __attribute__((noinline)) returnAddress();
+void* __attribute((noinline)) returnAddress();
 
 /**
  * @param targetF Pointer to implementation of 'native' method
@@ -35,7 +35,7 @@ void* __attribute__((noinline)) returnAddress();
  * 2 - unsupported CPU architecture<br>
  * 3 - out of memory (cannot allocate memory for native method caller)
  */
-int __attribute__((noinline)) JNIDirectInit(void* targetF, void** bridge_ptr, int argc);
+int __attribute((noinline)) JNIDirectInit(void* targetF, void** bridge_ptr, int argc);
 
 void* allocRWX(int size);
 
@@ -55,13 +55,6 @@ int JNIDirectInitIntrinsic(void*(*generate)(enum arch, void* args), void** gener
 #define EXIT_CODE_ERROR_NOT_COMPILED 1
 #define EXIT_CODE_ERROR_UNSUPPORTED_CPU 2
 #define EXIT_CODE_ERROR_OUT_OF_MEMORY 3
-
-typedef union {
-	void* address;
-	jlong value;
-} jpointer;
-
-
 
 #ifdef __cplusplus
 }

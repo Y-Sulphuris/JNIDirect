@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "G:/Sulphuris/Local/MSYS2/mingw64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

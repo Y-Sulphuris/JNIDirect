@@ -26,12 +26,20 @@ JNICritical:                            8,861 ± 4,465  ns/op
 JNIDirect:                              2,237 ± 0,135  ns/op
 Unsafe (HotSpot intrinsic):             3,220 ± 1,100  ns/op   
 JNIDirectIntrinsic (runtime-generated): 1,438 ± 0,062  ns/op
+JNIDirectIntrinsic (for Java 23):       1,638 ± 0,321  ns/op (no JavaCritical optimization beacuse it doesn't work there)
+Foreign API (Java 23, inline mov):      0,894 ± 0,061  ns/op
 
 
+Measurements were performed on Java 8, unless otherwise noted.
 Platform: Windows 10 x64, Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 ```
 
 ## How to use:
+
+Java native method must meet the following requirements:
+- Static and no synchronized
+- Arguments and return value may be only primitives
+- Complete in a short time
 
 To make native method _direct:_
 1. Move the implementation of the method into a separate 
@@ -69,14 +77,10 @@ jlong myDirectFunc(JNIDirectArgs jint arg) {
 //it will be points to runtime-generated function that calls myDirectFunc (only on 64 bit architecture, 32 bit doesn't need this)
 void* myDirectFunc_bridge = NULL;
 
-//called once when the method has just been recompiled by JIT
-JNIEXPORT jlong JNICALL JavaCritical_test_JNIDirectTest_myfunc(jint arg) {
-	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_bridge,1);
-	return myDirectFunc(JNIDirectAInvoke arg);
-}
-//fallback for other JVMs and non-jit compiled methods
+
 JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_myfunc(JNIEnv* env, jclass caller, jint arg) {
-	return myDirectFunc(JNIDirectAInvoke arg,1);
+	JNIDirectInit((void*)&myDirectFunc,&myDirectFunc_bridge,1);
+	return myDirectFunc(JNIDirectAInvoke arg,1); //fallback for other JVMs and non-jit compiled methods
 }
 ```
 

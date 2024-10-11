@@ -1,4 +1,5 @@
-ToolSet: w64 11.0 (local)@D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\mingw
+ToolSet: 11.0 w64 (local)@G:\Sulphuris\Local\MSYS2\mingw64
+Ninja: 1.12.0@D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\CLion\bin\ninja\win\x64\ninja.exe
 Options: 
 
 Options:

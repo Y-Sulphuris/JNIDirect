@@ -73,7 +73,7 @@ int roundup(int x, int y) {
 	return ((x+y-1) & ~(y-1));
 }
 void* currentRWXBlock = NULL;
-int sfp = 0;//function_stack_pointer
+int sfp = 0; // function_stack_pointer
 
 void* allocRWX(int size) {
 	if(currentRWXBlock == NULL || sfp > 40000) {
@@ -121,7 +121,7 @@ void* JNIDirectGenerateBridgeX86_64(void* a1, const void* const targetF, int arg
     void* generated = allocRWX(GEN_SIZE_X86_64);
     if(generated == NULL) return NULL;
 
-    //insert function that call target function:
+    //insert function that calls target function:
     byte* p = (byte*)generated;
     
     if(argc > 1) {

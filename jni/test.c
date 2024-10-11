@@ -91,8 +91,9 @@ void* getLong_generated = NULL;
 
 void* generateGetLong(enum arch cpu, void* args_ignored) {
 	switch (cpu) {
-		case x86:
+		case x86: {
 			break;
+		}
 		case x86_64: {
 			void* const generated = allocRWX(8);
 			if(generated == NULL) return NULL;
@@ -103,16 +104,23 @@ void* generateGetLong(enum arch cpu, void* args_ignored) {
 			
 			return generated;
 		}
-		case ARM:
+		case ARM: {
 			break;
-		case ARM64:
+		}
+		case ARM64: {
 			break;
-		case UnknownArch:
-			break;
+		}
+		default:
+			return NULL;
 	}
 	return NULL;
 }
 
+
+JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_getLongNoCritical(JNIEnv *env, jclass cls, jlong ptr) {
+	JNIDirectInitIntrinsic(generateGetLong, &getLong_generated, NULL, &getLongFallback, 1);
+	return *(jlong*)ptr;
+}
 
 JNIEXPORT jlong JNICALL Java_test_JNIDirectTest_getLong(JNIEnv *env, jclass cls, jlong ptr) {
 	return *(jlong*)ptr;

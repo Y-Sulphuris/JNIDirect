@@ -1,10 +1,19 @@
-D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.9921.42\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S G:\Project\CLionProjects\JNIDirect\jni -B G:\Project\CLionProjects\JNIDirect\jni\cmake-build-debug
--- The C compiler identification is GNU 13.1.0
+D:\__Sys__\Users\lidia\Local\JetBrains\Toolbox\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S G:\Project\CLionProjects\JNIDirect\jni -B G:\Project\CLionProjects\JNIDirect\jni\cmake-build-debug
+CMake Deprecation Warning:
+  Support for "Extra Generators" like
+
+    CodeBlocks
+
+  is deprecated and will be removed from a future version of CMake.  IDEs may
+  use the cmake-file-api(7) to view CMake-generated project build trees.
+
+
+-- The C compiler identification is GNU 12.2.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: D:/__Sys__/Users/lidia/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.9921.42/bin/mingw/bin/gcc.exe - skipped
+-- Check for working C compiler: G:/Sulphuris/Local/MSYS2/mingw64/bin/cc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (1.3s)
--- Generating done (0.2s)
+-- Configuring done (17.1s)
+-- Generating done (0.1s)
 -- Build files have been written to: G:/Project/CLionProjects/JNIDirect/jni/cmake-build-debug

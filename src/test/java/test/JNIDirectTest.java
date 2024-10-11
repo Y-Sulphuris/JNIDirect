@@ -4,6 +4,9 @@ import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import sun.misc.Unsafe;
 
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.ValueLayout;
+import java.lang.invoke.VarHandle;
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
@@ -19,9 +22,10 @@ public class JNIDirectTest {
 		//unix:
 		//System.load("/mnt/hgfs/JNIDirect/jni/cmake-build-debug/libJNIDirect.so");
 	}
-	public static void main(String[] args) throws Exception{
-		System.out.println("Hello world!" + unsafe.getLong(memory));
-		Thread.sleep(1000);
+	public static
+	void main(String[] args) throws Exception {
+		System.out.println("\033[31mHello world! " + unsafe.getLong(memory));
+		Thread.sleep(10000);
 		while(true) {
 			methodToBeJitCompiled();
 		}
@@ -63,11 +67,27 @@ public class JNIDirectTest {
 		getLong(memory);
 	}
 
+
+
+
+	private static native long getLongNoCritical(long ptr);
+
+	@Benchmark
+	public void measureGetLongDirectNoCritical(Blackhole bh) {
+		getLongNoCritical(memory);
+	}
+
 	private static native long getLongJNI(long ptr);
 
 	@Benchmark
 	public void measureGetLongJNI(Blackhole bh) {
 		getLongJNI(memory);
+	}
+
+	private static final MemorySegment unchecked_ram = MemorySegment.NULL.reinterpret(Long.MAX_VALUE);
+	@Benchmark
+	public void measureGetLongForeign(Blackhole bh) {
+		unchecked_ram.get(ValueLayout.JAVA_LONG_UNALIGNED, memory);
 	}
 
 	private static native long getLongCritical(long ptr);
@@ -79,5 +99,14 @@ public class JNIDirectTest {
 	@Benchmark
 	public long measureGetLongUnsafe(Blackhole bh) {
 		return unsafe.getLong(memory);
+	}
+
+	@Benchmark
+	public void measureAllocaTest(Blackhole bh) {
+		bh.consume(Test3.l1);
+	}
+
+	static final class Test3 {
+		static long l1;
 	}
 }
